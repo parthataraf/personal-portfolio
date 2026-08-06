@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Partha Tarafdar — Software & AI Engineer</title>
+<meta name="description" content="Partha Tarafdar builds and ships AI systems. MS in Artificial Intelligence at DePaul, BS Computer Science at UW–Madison. Founder of Polaris AI Technologies.">
+<meta property="og:title" content="Partha Tarafdar — Software & AI Engineer">
+<meta property="og:description" content="I build AI systems and ship them. Live products, measured results.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E9EAE3;
+    --paper-2:#E2E3DA;
+    --ink:#14181A;
+    --ink-soft:#565E62;
+    --rule:#C6C9BF;
+    --accent:#23407A;
+    --live:#2F6B45;
+    --max:1080px;
+
+    --display:'Archivo',system-ui,sans-serif;
+    --body:'Newsreader',Georgia,serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:18px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+
+  a{color:inherit;}
+  a:focus-visible,button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  /* ---------- document header strip ---------- */
+  .strip{
+    border-bottom:1px solid var(--rule);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .strip .wrap{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    padding-top:14px;
+    padding-bottom:14px;
+    flex-wrap:wrap;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 72px;}
+  .hero h1{
+    font-family:var(--display);
+    font-weight:700;
+    font-stretch:118%;
+    font-size:clamp(44px,9vw,104px);
+    line-height:.94;
+    letter-spacing:-.02em;
+    margin:0 0 28px;
+  }
+  .lede{
+    font-size:clamp(20px,2.4vw,27px);
+    line-height:1.45;
+    max-width:23em;
+    margin:0 0 36px;
+    font-weight:300;
+  }
+  .lede em{font-style:italic;color:var(--accent);}
+
+  .links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .links a{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:9px 15px;
+    border:1px solid var(--rule);
+    border-radius:2px;
+    background:transparent;
+    transition:background .18s ease,border-color .18s ease,color .18s ease;
+  }
+  .links a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+  /* ---------- section headings ---------- */
+  .sec{padding:64px 0;border-top:1px solid var(--rule);}
+  .sec-head{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 40px;
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+  }
+  .sec-head::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--rule);
+  }
+
+  /* ---------- project entries ---------- */
+  .entry{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 300px;
+    gap:56px;
+    padding:44px 0;
+    border-top:1px solid var(--rule);
+  }
+  .entry:first-of-type{border-top:none;padding-top:0;}
+
+  .entry h3{
+    font-family:var(--display);
+    font-stretch:112%;
+    font-weight:700;
+    font-size:clamp(26px,3.4vw,38px);
+    line-height:1.05;
+    letter-spacing:-.015em;
+    margin:0 0 6px;
+  }
+  .entry h3 a{text-decoration:none;border-bottom:2px solid var(--accent);}
+  .entry h3 a:hover{color:var(--accent);}
+
+  .status{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:18px;
+  }
+  .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--live);
+    flex:none;
+    box-shadow:0 0 0 0 rgba(47,107,69,.45);
+    animation:pulse 2.6s ease-out infinite;
+  }
+  .dot.off{background:var(--ink-soft);animation:none;box-shadow:none;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(47,107,69,.4);}
+    70%{box-shadow:0 0 0 7px rgba(47,107,69,0);}
+    100%{box-shadow:0 0 0 0 rgba(47,107,69,0);}
+  }
+
+  .entry p{margin:0 0 16px;max-width:40em;}
+  .entry p:last-child{margin-bottom:0;}
+
+  .stack{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    line-height:1.9;
+    margin-top:20px;
+  }
+
+  /* the signature: measured readouts */
+  .readout{align-self:start;}
+  .readout dl{margin:0;border-top:1px solid var(--ink);}
+  .readout div{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:14px;
+    padding:11px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .readout dt{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    max-width:60%;
+  }
+  .readout dd{
+    margin:0;
+    font-family:var(--mono);
+    font-size:15px;
+    font-weight:500;
+    white-space:nowrap;
+  }
+  .readout .note{
+    font-family:var(--mono);
+    font-size:10.5px;
+    color:var(--ink-soft);
+    margin-top:12px;
+    line-height:1.6;
+    letter-spacing:.02em;
+  }
+
+  /* ---------- smaller project grid ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+  }
+  .card{background:var(--paper);padding:26px 24px;}
+  .card h4{
+    font-family:var(--display);
+    font-stretch:108%;
+    font-weight:600;
+    font-size:19px;
+    margin:0 0 10px;
+    letter-spacing:-.005em;
+  }
+  .card p{font-size:16px;margin:0 0 14px;line-height:1.55;}
+  .card .stack{margin-top:0;font-size:11.5px;}
+
+  /* ---------- experience ---------- */
+  .role{
+    display:grid;
+    grid-template-columns:170px minmax(0,1fr);
+    gap:32px;
+    padding:26px 0;
+    border-top:1px solid var(--rule);
+  }
+  .role:first-of-type{border-top:none;}
+  .role .when{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.06em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    padding-top:6px;
+  }
+  .role h4{
+    font-family:var(--display);
+    font-stretch:108%;
+    font-weight:600;
+    font-size:20px;
+    margin:0 0 4px;
+  }
+  .role .org{color:var(--ink-soft);font-size:17px;margin:0 0 10px;}
+  .role p{margin:0;font-size:16.5px;max-width:44em;}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--ink);
+    padding:44px 0 60px;
+    margin-top:24px;
+  }
+  .foot{
+    display:flex;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+    align-items:flex-end;
+  }
+  .foot .say{
+    font-family:var(--display);
+    font-stretch:112%;
+    font-weight:700;
+    font-size:clamp(24px,4vw,40px);
+    line-height:1.1;
+    letter-spacing:-.015em;
+    margin:0;
+    max-width:12em;
+  }
+  .foot .meta{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    text-align:right;
+    line-height:2;
+  }
+  .foot .meta a{text-decoration:none;border-bottom:1px solid var(--rule);}
+  .foot .meta a:hover{color:var(--accent);border-color:var(--accent);}
+
+  /* ---------- motion ---------- */
+  .rise{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .rise.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .rise{opacity:1;transform:none;transition:none;}
+    .dot{animation:none;}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:860px){
+    .entry{grid-template-columns:1fr;gap:28px;}
+    .readout{max-width:420px;}
+    .role{grid-template-columns:1fr;gap:6px;}
+    .role .when{padding-top:0;}
+  }
+  @media (max-width:560px){
+    body{font-size:17px;}
+    .wrap{padding:0 22px;}
+    .hero{padding:56px 0 48px;}
+    .sec{padding:48px 0;}
+    .foot{flex-direction:column;align-items:flex-start;}
+    .foot .meta{text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <div class="wrap">
+    <span>Partha Tarafdar</span>
+    <span>Chicago, IL</span>
+    <span>MS Artificial Intelligence &middot; DePaul &rsquo;27</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>I build AI&nbsp;systems<br>and ship&nbsp;them.</h1>
+    <p class="lede">
+      Software engineer working on retrieval, evaluation, and the unglamorous
+      infrastructure that turns a model into <em>something people can actually use</em>.
+    </p>
+    <nav class="links">
+      <a href="https://leagueoflegends.polaris-ai.org">Live demo &rarr;</a>
+      <a href="https://github.com/parthataraf">GitHub</a>
+      <a href="https://www.linkedin.com/">LinkedIn</a>
+      <a href="mailto:tarafdarpartha2025@gmail.com">Email</a>
+      <a href="Partha_Tarafdar_Resume.pdf">Résumé (PDF)</a>
+    </nav>
+  </div>
+</header>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <h2 class="sec-head">Selected work</h2>
+
+    <!-- JANUS -->
+    <article class="entry rise">
+      <div>
+        <h3><a href="https://leagueoflegends.polaris-ai.org">Janus</a></h3>
+        <p class="status"><span class="dot" aria-hidden="true"></span> Live &middot; leagueoflegends.polaris-ai.org</p>
+        <p>
+          A grounded question-answering engine for League of Legends. Ask it anything
+          about champions, items, matchups, or the current meta and it answers from real
+          data, cites what it used, and tells you when it doesn&rsquo;t know rather than guessing.
+        </p>
+        <p>
+          Every retrieval mechanism is hand-written &mdash; no RAG framework. Three strategies
+          run behind one router, each matched to the kind of truth it serves: a
+          version-pinned corpus for game mechanics, typed SQL tables for exact numbers,
+          and a sanctioned live API for statistics that change daily. The generator is
+          only allowed to speak from what retrieval found.
+        </p>
+        <p class="stack">
+          Python &middot; FastAPI &middot; Postgres + pgvector &middot; React &middot; Docker &middot; Caddy &middot; MCP
+        </p>
+      </div>
+      <div class="readout">
+        <dl>
+          <div><dt>Faithfulness</dt><dd>5.00 / 5</dd></div>
+          <div><dt>Curated eval questions</dt><dd>40</dd></div>
+          <div><dt>Embedding models benchmarked</dt><dd>5</dd></div>
+          <div><dt>Retrieval strategies</dt><dd>3</dd></div>
+        </dl>
+        <p class="note">
+          Scored by an independent judge model on a hand-curated,
+          double-reviewed golden set. Retrieval defaults change only
+          with measured evidence.
+        </p>
+      </div>
+    </article>
+
+    <!-- CAREERLAUNCH -->
+    <article class="entry rise">
+      <div>
+        <h3><a href="https://careerlaunchonline.com">CareerLaunch</a></h3>
+        <p class="status"><span class="dot" aria-hidden="true"></span> Live &middot; careerlaunchonline.com</p>
+        <p>
+          A job-application tracker built for the part of a job search nobody enjoys:
+          knowing where every application stands. Track statuses, keep résumé versions
+          straight, and see weekly and monthly trends without maintaining a spreadsheet.
+        </p>
+        <p>
+          Designed, built, and launched solo under Polaris AI Technologies LLC &mdash;
+          including the parts that aren&rsquo;t code: auth, hosting, and the decisions about
+          what not to build.
+        </p>
+        <p class="stack">
+          React (Vite) &middot; Flask REST API &middot; PostgreSQL &middot; Firebase Auth (Google SSO)
+        </p>
+      </div>
+      <div class="readout">
+        <dl>
+          <div><dt>Role</dt><dd>Solo</dd></div>
+          <div><dt>Shipped</dt><dd>2025</dd></div>
+          <div><dt>Auth</dt><dd>Google SSO</dd></div>
+        </dl>
+        <p class="note">
+          Founded Polaris AI Technologies LLC to ship it, and kept the
+          company as the home for everything since.
+        </p>
+      </div>
+    </article>
+
+    <!-- WEATHER STATION -->
+    <article class="entry rise">
+      <div>
+        <h3>Distributed Weather Station</h3>
+        <p class="status"><span class="dot off" aria-hidden="true"></span> Coursework &middot; source on GitHub</p>
+        <p>
+          A fault-tolerant ingestion pipeline for Wisconsin weather-station data: gRPC
+          services in front of an Apache Cassandra cluster, with PySpark handling parsing
+          and filtering before anything reaches storage.
+        </p>
+        <p>
+          The interesting part was the failure behaviour &mdash; keeping ingestion correct
+          when nodes drop out, rather than only when everything is healthy.
+        </p>
+        <p class="stack">
+          Python &middot; Apache Cassandra &middot; PySpark &middot; gRPC &middot; HDFS
+        </p>
+      </div>
+      <div class="readout">
+        <dl>
+          <div><dt>Storage</dt><dd>Cassandra</dd></div>
+          <div><dt>Transport</dt><dd>gRPC</dd></div>
+          <div><dt>Processing</dt><dd>PySpark</dd></div>
+        </dl>
+        <p class="note">
+          Built for UW&ndash;Madison&rsquo;s Big Data Systems coursework.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <h2 class="sec-head">Also built</h2>
+    <div class="grid">
+      <div class="card">
+        <h4>Persona Chatbot</h4>
+        <p>GPT-4o chatbot with switchable personas, streaming responses, and memory that survives a refresh.</p>
+        <p class="stack">React &middot; OpenAI API &middot; Local Storage</p>
+      </div>
+      <div class="card">
+        <h4>Voice Assistant</h4>
+        <p>Natural-language voice interface with custom-trained intents for help, chatroom listing, and message retrieval.</p>
+        <p class="stack">React &middot; Wit.ai &middot; REST &middot; NLP</p>
+      </div>
+      <div class="card">
+        <h4>Chat Mobile App</h4>
+        <p>Cross-platform chat with registration, guest mode, and JWTs held in secure device storage.</p>
+        <p class="stack">React Native &middot; Expo &middot; JWT &middot; Secure Store</p>
+      </div>
+      <div class="card">
+        <h4>News Reader</h4>
+        <p>Tag-based article filtering with animated transitions between list and detail views.</p>
+        <p class="stack">React Native &middot; JavaScript</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="experience">
+  <div class="wrap">
+    <h2 class="sec-head">Experience</h2>
+
+    <div class="role rise">
+      <div class="when">Jun 2025 &mdash; Present</div>
+      <div>
+        <h4>Founder &amp; Full-Stack Developer</h4>
+        <p class="org">Polaris AI Technologies LLC &middot; Chicago, IL</p>
+        <p>
+          Founded the company to ship CareerLaunch, and have kept building under it since &mdash;
+          most recently Janus. Everything from product decisions through deployment and
+          the servers underneath.
+        </p>
+      </div>
+    </div>
+
+    <div class="role rise">
+      <div class="when">Summers 2023 &amp; 2024</div>
+      <div>
+        <h4>Website Administrator</h4>
+        <p class="org">Badminton Warehouse &middot; Schaumburg, IL</p>
+        <p>
+          Maintained and extended a Shopify storefront in Liquid, HTML/CSS and JavaScript,
+          and wrote Python automation for bulk product updates that cut manual update time
+          by over 60%. SEO work moved most target categories into the top three Google results.
+        </p>
+      </div>
+    </div>
+
+    <div class="role rise">
+      <div class="when">May &mdash; Aug 2022</div>
+      <div>
+        <h4>Software Developer Intern</h4>
+        <p class="org">US Cellular &middot; Schaumburg, IL</p>
+        <p>
+          Automated monthly operations reporting with a Flask and SQLAlchemy API,
+          cutting runtime by 33%, and built the React dashboard that put the reports in
+          front of 40+ people who had been waiting on them by email.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="education">
+  <div class="wrap">
+    <h2 class="sec-head">Education</h2>
+
+    <div class="role">
+      <div class="when">Expected 2027</div>
+      <div>
+        <h4>MS, Artificial Intelligence</h4>
+        <p class="org">DePaul University &middot; GPA 3.6</p>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="when">May 2025</div>
+      <div>
+        <h4>BS, Computer Science</h4>
+        <p class="org">University of Wisconsin&ndash;Madison &middot; Dean&rsquo;s List 2020, 2021</p>
+        <p>
+          Algorithms &middot; Artificial Intelligence &middot; Big Data Systems &middot; Software
+          Engineering &middot; Data Science &middot; Human-Computer Interaction &middot; Statistics
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <p class="say">Open to software and AI engineering roles.</p>
+    <div class="meta">
+      <a href="mailto:tarafdarpartha2025@gmail.com">tarafdarpartha2025@gmail.com</a><br>
+      <a href="tel:+16304862480">630 &middot; 486 &middot; 2480</a><br>
+      <a href="https://github.com/parthataraf">github.com/parthataraf</a><br>
+      Chicago, Illinois
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = document.querySelectorAll('.rise');
+    if (reduce || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
