@@ -236,6 +236,16 @@
   .card p{font-size:16px;margin:0 0 14px;line-height:1.55;}
   .card .stack{margin-top:0;font-size:11.5px;}
 
+  /* ---------- about ---------- */
+  .about{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 300px;
+    gap:56px;
+    align-items:start;
+  }
+  .about p{max-width:38em;}
+  .about p:last-of-type{margin-bottom:0;}
+
   /* ---------- experience ---------- */
   .role{
     display:grid;
@@ -309,7 +319,7 @@
 
   /* ---------- responsive ---------- */
   @media (max-width:860px){
-    .entry{grid-template-columns:1fr;gap:28px;}
+    .entry,.about{grid-template-columns:1fr;gap:28px;}
     .readout{max-width:420px;}
     .role{grid-template-columns:1fr;gap:6px;}
     .role .when{padding-top:0;}
@@ -548,6 +558,48 @@
         <p>
           Algorithms &middot; Artificial Intelligence &middot; Big Data Systems &middot; Software
           Engineering &middot; Data Science &middot; Human-Computer Interaction &middot; Statistics
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap">
+    <h2 class="sec-head">About</h2>
+    <div class="about">
+      <div>
+        <p>
+          I&rsquo;m Partha, a Chicago-based engineer finishing a master&rsquo;s in
+          artificial intelligence at DePaul after a computer science degree at
+          UW&ndash;Madison. Most of what I build starts as a question I can&rsquo;t find a
+          clean answer to, and ends as something running on a server I set up myself.
+        </p>
+        <p>
+          Janus came out of exactly that. I play a lot of League, and I wanted an
+          assistant that would give me real numbers instead of a confident guess.
+          Getting it to stay honest about what it actually knows turned out to be
+          the interesting part.
+        </p>
+        <p>
+          Away from the keyboard I&rsquo;m usually playing pickleball or pickup
+          basketball. I also enjoy writing about this stuff, and I&rsquo;ve got an
+          AI-focused blog in the works covering retrieval, evaluation, and the parts
+          of shipping an AI system that don&rsquo;t make it into papers. If you want to
+          talk about any of that, or about a role, the email below is the fastest way
+          to reach me.
+        </p>
+      </div>
+      <div class="readout">
+        <dl>
+          <div><dt>Based in</dt><dd>Chicago, IL</dd></div>
+          <div><dt>Currently</dt><dd>MS AI &rsquo;27</dd></div>
+          <div><dt>Off the keyboard</dt><dd>Pickleball</dd></div>
+          <div><dt>Writing</dt><dd>Soon</dd></div>
+        </dl>
+        <p class="note">
+          Open to software and AI engineering roles, and to conversations
+          that aren&rsquo;t about either.
         </p>
       </div>
     </div>
