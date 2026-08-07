@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Single-page site, so one entry. If the site moves to a custom domain,
+<!-- Single-page site, so one entry. If the site moves to a different domain,
      update the <loc> here, the canonical link and og:url in index.html, and
      the Sitemap line in robots.txt together. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://parthataraf.github.io/personal-portfolio/</loc>
+    <loc>https://parthatarafdar.com/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>

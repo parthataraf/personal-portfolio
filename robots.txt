@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://parthataraf.github.io/personal-portfolio/sitemap.xml
+Sitemap: https://parthatarafdar.com/sitemap.xml
