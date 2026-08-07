@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Partha Tarafdar: Software & AI Engineer</title>
-<meta name="description" content="Partha Tarafdar builds retrieval-augmented generation systems and ships them. MS AI candidate at DePaul, BS Computer Science at UW–Madison.">
+<meta name="description" content="Partha Tarafdar builds and ships AI systems: retrieval-augmented generation, evaluation, and the production infrastructure underneath. MS AI candidate at DePaul, BS Computer Science at UW–Madison.">
 
 <!-- Canonical: keep this, og:url, the JSON-LD "url", sitemap.xml <loc>, and the
      Sitemap line in robots.txt on the same domain if the site ever moves. -->
 <link rel="canonical" href="https://parthatarafdar.com/">
 
 <meta property="og:title" content="Partha Tarafdar: Software & AI Engineer">
-<meta property="og:description" content="I build AI systems and ship them.">
+<meta property="og:description" content="I build AI systems and ship them. Live products, measured results.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://parthatarafdar.com/">
 <meta property="og:image" content="https://parthatarafdar.com/og-image.png">
@@ -491,13 +491,14 @@
         <p>
           Janus is a retrieval-augmented generation system written from scratch rather
           than assembled from a framework. That means I control the routing and
-          retrieval behaviour, and I can measure every stage of the pipeline on its own.
+          retrieval behaviour, and every stage of the pipeline can be measured on its
+          own instead of disappearing behind an abstraction.
         </p>
         <p>
-          Three retrieval strategies run behind one router: a version-pinned corpus for
-          game mechanics, typed SQL tables for exact numbers, and a sanctioned live API
-          for statistics that change daily. The generator is only allowed to speak from
-          what retrieval found.
+          Three retrieval strategies run behind one router, each matched to the kind of
+          truth it serves: a version-pinned corpus for game mechanics, typed SQL tables
+          for exact numbers, and a sanctioned live API for statistics that change daily.
+          The generator is only allowed to speak from what retrieval found.
         </p>
         <p class="stack">
           Python &middot; FastAPI &middot; Postgres + pgvector &middot; React &middot; Docker &middot; Caddy &middot; MCP
@@ -682,8 +683,8 @@
         <p>
           I&rsquo;m Partha, a Chicago-based software engineer pursuing an MS in
           Artificial Intelligence at DePaul after a CS degree from UW&ndash;Madison.
-          I like building the whole thing myself, from retrieval and evaluation down
-          to the server it runs on.
+          I like building systems end to end, from retrieval and evaluation down to
+          deploying the app and running the infrastructure underneath.
         </p>
         <p>
           Lately that&rsquo;s meant Janus, a grounded League of Legends assistant,
