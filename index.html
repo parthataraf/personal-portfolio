@@ -104,9 +104,12 @@
     outline-offset:3px;
   }
 
-  /* ---------- document header strip ---------- */
+  /* ---------- document header strip ----------
+     Identity on the left, contact on the right. Contact links are text links,
+     not buttons, so they stay subordinate to the hero CTAs. */
   .strip{
     border-bottom:1px solid var(--rule);
+    background:var(--paper);
     font-family:var(--mono);
     font-size:11px;
     letter-spacing:.14em;
@@ -116,10 +119,47 @@
   .strip .wrap{
     display:flex;
     justify-content:space-between;
-    gap:16px;
+    align-items:center;
+    gap:8px 24px;
     padding-top:14px;
     padding-bottom:14px;
     flex-wrap:wrap;
+  }
+  .strip .who{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    min-width:0;
+  }
+  .strip .nm{color:var(--ink);}
+  .strip .sep{color:var(--rule);}
+  .strip .cred-short{display:none;}
+
+  .reach{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-shrink:0;
+  }
+  .reach a{
+    text-decoration:underline;
+    text-decoration-color:var(--rule);
+    text-decoration-thickness:1px;
+    text-underline-offset:4px;
+    transition:color .18s ease,text-decoration-color .18s ease;
+  }
+  .reach a:hover{color:var(--accent);text-decoration-color:var(--accent);}
+
+  /* Pinned only where it pays for itself. Below 561px the strip needs two rows,
+     and ~60px of permanent viewport is too much to surrender on a phone, so
+     there it scrolls away normally. */
+  @media (min-width:561px){
+    .strip{position:sticky;top:0;z-index:50;}
+    /* Lift it off the page only once it actually overlaps content. */
+    .strip.stuck{box-shadow:0 6px 18px -14px rgba(20,24,26,.55);}
+    /* Sections have ids; keep anchored headings clear of the pinned strip. */
+    .sec{scroll-margin-top:72px;}
   }
 
   /* ---------- hero ---------- */
@@ -382,6 +422,18 @@
     .role{grid-template-columns:1fr;gap:6px;}
     .role .when{padding-top:0;}
   }
+  /* Strip collapse: the city drops first, then the credential shortens, then the
+     contact links take their own row. Name and credential always survive, and
+     type holds at 11px throughout -- legibility beats saving a row of height. */
+  @media (max-width:760px){
+    .strip .loc,.strip .loc + .sep{display:none;}
+  }
+  @media (max-width:560px){
+    .strip .wrap{padding-top:11px;padding-bottom:11px;gap:5px 18px;}
+    .strip .cred-long{display:none;}
+    .strip .cred-short{display:inline;}
+    .reach{gap:16px;}
+  }
   @media (max-width:560px){
     body{font-size:17px;}
     .wrap{padding:0 22px;}
@@ -396,9 +448,18 @@
 
 <div class="strip">
   <div class="wrap">
-    <span>Partha Tarafdar</span>
-    <span>Chicago, IL</span>
-    <span>MS AI Candidate &middot; DePaul &rsquo;27</span>
+    <div class="who">
+      <span class="nm">Partha Tarafdar</span>
+      <span class="sep" aria-hidden="true">/</span>
+      <span class="loc">Chicago, IL</span>
+      <span class="sep" aria-hidden="true">/</span>
+      <span class="cred-long">MS AI Candidate &middot; DePaul &rsquo;27</span>
+      <span class="cred-short">MS AI &middot; DePaul &rsquo;27</span>
+    </div>
+    <nav class="reach" aria-label="Contact">
+      <a href="mailto:tarafdarpartha2025@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/partha-taraf/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+    </nav>
   </div>
 </div>
 
@@ -412,8 +473,6 @@
     <nav class="links">
       <a href="https://leagueoflegends.polaris-ai.org" target="_blank" rel="noopener noreferrer">Live demo &rarr;</a>
       <a href="https://github.com/parthataraf" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/partha-taraf/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:tarafdarpartha2025@gmail.com">Email</a>
       <a href="Partha_Tarafdar_Resume.pdf" target="_blank" rel="noopener noreferrer">Résumé (PDF)</a>
     </nav>
   </div>
@@ -670,6 +729,15 @@
 </footer>
 
 <script>
+  (function () {
+    var strip = document.querySelector('.strip');
+    if (strip) {
+      var onScroll = function () { strip.classList.toggle('stuck', window.scrollY > 4); };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+  })();
+
   (function () {
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var items = document.querySelectorAll('.rise');
