@@ -4,10 +4,66 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Partha Tarafdar — Software & AI Engineer</title>
-<meta name="description" content="Partha Tarafdar builds and ships AI systems. MS in Artificial Intelligence at DePaul, BS Computer Science at UW–Madison. Founder of Polaris AI Technologies.">
+<meta name="description" content="Partha Tarafdar builds and ships AI systems: retrieval-augmented generation, evaluation, and the production infrastructure underneath. MS AI candidate at DePaul, BS Computer Science at UW–Madison.">
+
+<!-- Canonical: update this and og:url together if the site moves to a custom domain. -->
+<link rel="canonical" href="https://parthataraf.github.io/personal-portfolio/">
+
 <meta property="og:title" content="Partha Tarafdar — Software & AI Engineer">
 <meta property="og:description" content="I build AI systems and ship them. Live products, measured results.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://parthataraf.github.io/personal-portfolio/">
+<!-- Supply og-image.png in the repo root at 1200x630, then uncomment these two.
+     Left commented on purpose: a link preview pointing at a missing image renders
+     a broken card, which is worse than the plain text card you get with no tag.
+<meta property="og:image" content="https://parthataraf.github.io/personal-portfolio/og-image.png">
+<meta property="og:image:alt" content="Partha Tarafdar, software and AI engineer">
+-->
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Partha Tarafdar",
+  "url": "https://parthataraf.github.io/personal-portfolio/",
+  "jobTitle": "Software Engineer",
+  "email": "mailto:tarafdarpartha2025@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Chicago",
+    "addressRegion": "IL",
+    "addressCountry": "US"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "DePaul University",
+      "description": "MS, Artificial Intelligence (candidate, expected 2027)"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Wisconsin–Madison",
+      "description": "BS, Computer Science"
+    }
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Polaris AI Technologies LLC"
+  },
+  "knowsAbout": [
+    "Retrieval-augmented generation",
+    "Information retrieval",
+    "Evaluation of language models",
+    "Backend engineering",
+    "Infrastructure and deployment"
+  ],
+  "sameAs": [
+    "https://github.com/parthataraf"
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -340,7 +396,7 @@
   <div class="wrap">
     <span>Partha Tarafdar</span>
     <span>Chicago, IL</span>
-    <span>MS Artificial Intelligence &middot; DePaul &rsquo;27</span>
+    <span>MS AI Candidate &middot; DePaul &rsquo;27</span>
   </div>
 </div>
 
@@ -348,15 +404,17 @@
   <div class="wrap">
     <h1>I build AI&nbsp;systems<br>and ship&nbsp;them.</h1>
     <p class="lede">
-      Software engineer working on retrieval, evaluation, and the unglamorous
-      infrastructure that turns a model into <em>something people can actually use</em>.
+      Software engineer working on retrieval, evaluation, and the production
+      infrastructure that turns models into <em>systems people can actually use</em>.
     </p>
     <nav class="links">
-      <a href="https://leagueoflegends.polaris-ai.org">Live demo &rarr;</a>
-      <a href="https://github.com/parthataraf">GitHub</a>
-      <a href="https://www.linkedin.com/">LinkedIn</a>
+      <a href="https://leagueoflegends.polaris-ai.org" target="_blank" rel="noopener noreferrer">Live demo &rarr;</a>
+      <a href="https://github.com/parthataraf" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <!-- PLACEHOLDER: this points at LinkedIn's home page, not a profile. Replace
+           with the full profile URL (https://www.linkedin.com/in/<your-handle>/). -->
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <a href="mailto:tarafdarpartha2025@gmail.com">Email</a>
-      <a href="Partha_Tarafdar_Resume.pdf">Résumé (PDF)</a>
+      <a href="Partha_Tarafdar_Resume.pdf" target="_blank" rel="noopener noreferrer">Résumé (PDF)</a>
     </nav>
   </div>
 </header>
@@ -368,7 +426,7 @@
     <!-- JANUS -->
     <article class="entry rise">
       <div>
-        <h3><a href="https://leagueoflegends.polaris-ai.org">Janus</a></h3>
+        <h3><a href="https://leagueoflegends.polaris-ai.org" target="_blank" rel="noopener noreferrer">Janus</a></h3>
         <p class="status"><span class="dot" aria-hidden="true"></span> Live &middot; leagueoflegends.polaris-ai.org</p>
         <p>
           A grounded question-answering engine for League of Legends. Ask it anything
@@ -376,11 +434,17 @@
           data, cites what it used, and tells you when it doesn&rsquo;t know rather than guessing.
         </p>
         <p>
-          Every retrieval mechanism is hand-written &mdash; no RAG framework. Three strategies
-          run behind one router, each matched to the kind of truth it serves: a
-          version-pinned corpus for game mechanics, typed SQL tables for exact numbers,
-          and a sanctioned live API for statistics that change daily. The generator is
-          only allowed to speak from what retrieval found.
+          Janus is a retrieval-augmented generation system written from scratch rather
+          than assembled from a framework. That choice is what makes the rest of it
+          possible: routing and retrieval behaviour are fully under my control, and
+          every stage of the pipeline can be measured on its own instead of disappearing
+          behind an abstraction.
+        </p>
+        <p>
+          Three retrieval strategies run behind one router, each matched to the kind of
+          truth it serves: a version-pinned corpus for game mechanics, typed SQL tables
+          for exact numbers, and a sanctioned live API for statistics that change daily.
+          The generator is only allowed to speak from what retrieval found.
         </p>
         <p class="stack">
           Python &middot; FastAPI &middot; Postgres + pgvector &middot; React &middot; Docker &middot; Caddy &middot; MCP
@@ -388,15 +452,18 @@
       </div>
       <div class="readout">
         <dl>
+          <div><dt>Retrieval hit@1</dt><dd>66.7% &rarr; 74.5%</dd></div>
           <div><dt>Faithfulness</dt><dd>5.00 / 5</dd></div>
           <div><dt>Curated eval questions</dt><dd>40</dd></div>
           <div><dt>Embedding models benchmarked</dt><dd>5</dd></div>
           <div><dt>Retrieval strategies</dt><dd>3</dd></div>
         </dl>
         <p class="note">
-          Scored by an independent judge model on a hand-curated,
-          double-reviewed golden set. Retrieval defaults change only
-          with measured evidence.
+          Hit@1 gain from a five-way embedding benchmark. Faithfulness
+          scored by a separate LLM judge model, from a different model
+          family than the generator, over a hand-curated and
+          double-reviewed 40-question golden set. Retrieval defaults
+          change only with measured evidence.
         </p>
       </div>
     </article>
@@ -404,7 +471,7 @@
     <!-- CAREERLAUNCH -->
     <article class="entry rise">
       <div>
-        <h3><a href="https://careerlaunchonline.com">CareerLaunch</a></h3>
+        <h3><a href="https://careerlaunchonline.com" target="_blank" rel="noopener noreferrer">CareerLaunch</a></h3>
         <p class="status"><span class="dot" aria-hidden="true"></span> Live &middot; careerlaunchonline.com</p>
         <p>
           A job-application tracker built for the part of a job search nobody enjoys:
@@ -412,9 +479,8 @@
           straight, and see weekly and monthly trends without maintaining a spreadsheet.
         </p>
         <p>
-          Designed, built, and launched solo under Polaris AI Technologies LLC &mdash;
-          including the parts that aren&rsquo;t code: auth, hosting, and the decisions about
-          what not to build.
+          Built and launched solo, including the parts that aren&rsquo;t code: auth,
+          hosting, and the decisions about what not to build.
         </p>
         <p class="stack">
           React (Vite) &middot; Flask REST API &middot; PostgreSQL &middot; Firebase Auth (Google SSO)
@@ -427,8 +493,8 @@
           <div><dt>Auth</dt><dd>Google SSO</dd></div>
         </dl>
         <p class="note">
-          Founded Polaris AI Technologies LLC to ship it, and kept the
-          company as the home for everything since.
+          Designed, built, deployed, and operate CareerLaunch independently
+          under Polaris AI Technologies LLC.
         </p>
       </div>
     </article>
@@ -470,16 +536,6 @@
     <h2 class="sec-head">Also built</h2>
     <div class="grid">
       <div class="card">
-        <h4>Persona Chatbot</h4>
-        <p>GPT-4o chatbot with switchable personas, streaming responses, and memory that survives a refresh.</p>
-        <p class="stack">React &middot; OpenAI API &middot; Local Storage</p>
-      </div>
-      <div class="card">
-        <h4>Voice Assistant</h4>
-        <p>Natural-language voice interface with custom-trained intents for help, chatroom listing, and message retrieval.</p>
-        <p class="stack">React &middot; Wit.ai &middot; REST &middot; NLP</p>
-      </div>
-      <div class="card">
         <h4>Chat Mobile App</h4>
         <p>Cross-platform chat with registration, guest mode, and JWTs held in secure device storage.</p>
         <p class="stack">React Native &middot; Expo &middot; JWT &middot; Secure Store</p>
@@ -500,12 +556,12 @@
     <div class="role rise">
       <div class="when">Jun 2025 &mdash; Present</div>
       <div>
-        <h4>Founder &amp; Full-Stack Developer</h4>
+        <h4>Full-Stack Developer &amp; Founder</h4>
         <p class="org">Polaris AI Technologies LLC &middot; Chicago, IL</p>
         <p>
-          Founded the company to ship CareerLaunch, and have kept building under it since &mdash;
-          most recently Janus. Everything from product decisions through deployment and
-          the servers underneath.
+          Build and ship production software end to end: product decisions, application
+          code, deployment, and the servers underneath. CareerLaunch first, most
+          recently Janus.
         </p>
       </div>
     </div>
@@ -570,24 +626,20 @@
     <div class="about">
       <div>
         <p>
-          I&rsquo;m Partha, a Chicago-based engineer finishing a master&rsquo;s in
-          artificial intelligence at DePaul after a computer science degree at
-          UW&ndash;Madison. Most of what I build starts as a question I can&rsquo;t find a
-          clean answer to, and ends as something running on a server I set up myself.
+          I&rsquo;m Partha, a Chicago-based software engineer pursuing an MS in
+          Artificial Intelligence at DePaul after a CS degree from UW&ndash;Madison.
+          I like building systems end to end, from how data gets retrieved and
+          evaluated through deploying the app and running the infrastructure
+          underneath.
         </p>
         <p>
-          Janus came out of exactly that. I play a lot of League, and I wanted an
-          assistant that would give me real numbers instead of a confident guess.
-          Getting it to stay honest about what it actually knows turned out to be
-          the interesting part.
+          Most recently that has meant Janus, a grounded League of Legends assistant,
+          and CareerLaunch, a job-application tracker I built and launched
+          independently. Away from the keyboard I&rsquo;m usually playing pickleball
+          or pickup basketball.
         </p>
         <p>
-          Away from the keyboard I&rsquo;m usually playing pickleball or pickup
-          basketball. I also enjoy writing about this stuff, and I&rsquo;ve got an
-          AI-focused blog in the works covering retrieval, evaluation, and the parts
-          of shipping an AI system that don&rsquo;t make it into papers. If you want to
-          talk about any of that, or about a role, the email below is the fastest way
-          to reach me.
+          Currently open to software and AI engineering roles.
         </p>
       </div>
       <div class="readout">
@@ -595,11 +647,10 @@
           <div><dt>Based in</dt><dd>Chicago, IL</dd></div>
           <div><dt>Currently</dt><dd>MS AI &rsquo;27</dd></div>
           <div><dt>Off the keyboard</dt><dd>Pickleball</dd></div>
-          <div><dt>Writing</dt><dd>Soon</dd></div>
         </dl>
         <p class="note">
-          Open to software and AI engineering roles, and to conversations
-          that aren&rsquo;t about either.
+          Happy to talk about retrieval, evaluation, or shipping AI systems.
+          The email below is the fastest way to reach me.
         </p>
       </div>
     </div>
@@ -611,8 +662,8 @@
     <p class="say">Open to software and AI engineering roles.</p>
     <div class="meta">
       <a href="mailto:tarafdarpartha2025@gmail.com">tarafdarpartha2025@gmail.com</a><br>
-      <a href="tel:+16304862480">630 &middot; 486 &middot; 2480</a><br>
-      <a href="https://github.com/parthataraf">github.com/parthataraf</a><br>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a><br>
+      <a href="https://github.com/parthataraf" target="_blank" rel="noopener noreferrer">github.com/parthataraf</a><br>
       Chicago, Illinois
     </div>
   </div>
